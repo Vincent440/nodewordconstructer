@@ -1,8 +1,12 @@
-const Letter = function (char) {
+const Letter = function (anyCharacter) {
   // A string value to store the underlying character for the letter
-  this.character = char
+  this.character = anyCharacter
   // A boolean value that stores whether that letter has been guessed yet
-  this.guessed = false
+  if (this.character === '_' || this.character === '-') {
+    this.guessed = true
+  } else {
+    this.guessed = false
+  }
   // Letter's display function is named toString,
   this.toString = function () {
     // JavaScript will call that function automatically whenever casting that object to a string

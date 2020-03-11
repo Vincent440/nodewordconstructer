@@ -4,8 +4,15 @@
   "description": "Word Guess command-line game using constructor functions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "yarn lint && jest",
+    "lint": "standard --fix",
+    "check-lint": "standard",
+    "start": "node index.js",
+    "letter": "node Letter.js",
+    "word": "node Word.js"
+  },
+  "standard": {
+    "env": [ "jest" ]
   },
   "repository": {
     "type": "git",
@@ -21,6 +28,7 @@
     "inquirer": "^7.0.0"
   },
   "devDependencies": {
+    "jest": "^25.1.0",
     "standard": "^14.3.1"
   }
 }
