@@ -1,6 +1,12 @@
-const Letter = function (anyCharacter) {
+const Letter = function (singleCharacter) {
   // A string value to store the underlying character for the letter
-  this.character = anyCharacter
+  switch (singleCharacter.length) {
+    case 1:
+      this.character = singleCharacter
+      break
+    default:
+      throw new Error('A letter can ONLY be a SINGLE character')
+  }
   // A boolean value that stores whether that letter has been guessed yet
   if (this.character === '_' || this.character === '-') {
     this.guessed = true

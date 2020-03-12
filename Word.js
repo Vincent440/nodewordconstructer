@@ -5,7 +5,7 @@ const Word = function (word) { // Word created by the Letter constructor.
   this.letters = word.split('').map(char => new Letter(char))
   // function that returns a string representing the word. This should call the function on each letter object
   this.display = function () {
-    return this.letters.join(' ')
+    return this.letters.join('')
   }
   // A function that takes a character as an argument and calls the guess function on each letter object
   this.guessLetter = function (char) {

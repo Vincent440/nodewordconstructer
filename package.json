@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "yarn lint && jest",
+    "test-watcher": "jest --watchAll",
     "lint": "standard --fix",
     "check-lint": "standard",
     "start": "node index.js",

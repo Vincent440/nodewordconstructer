@@ -12,6 +12,8 @@ The completed game should meet the following criteria:
 
 2. Your solution should have, at minimum, three files:
 
+---
+
 * **Letter.js**: Contains a constructor, Letter. This constructor should be able to either display an underlying character or a blank placeholder (such as an underscore), depending on whether or not the user has guessed the letter. That means the constructor should define:
 
   * A string value to store the underlying character for the letter
@@ -22,6 +24,8 @@ The completed game should meet the following criteria:
 
   * A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
 
+---
+
 * **Word.js**: Contains a constructor, Word that depends on the Letter constructor. This is used to create an object representing the current word the user is attempting to guess. That means the constructor should define:
 
   * An array of `new` Letter objects representing the letters of the underlying word
@@ -30,11 +34,15 @@ The completed game should meet the following criteria:
 
   * A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in `Letter.js`)
 
+  ---
+
 * **index.js**: The file containing the logic for the course of the game, which depends on `Word.js` and:
 
   * Randomly selects a word and uses the `Word` constructor to store it
 
   * Prompts the user for each guess and keeps track of the user's remaining guesses
+
+  ---
 
 3. `Letter.js` *should not* `require` any other files.
 
