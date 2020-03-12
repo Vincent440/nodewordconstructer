@@ -23,7 +23,7 @@ const Letter = function (singleCharacter) {
   }
   // A function that takes a character as an argument and checks it against the underlying character,
   this.makeGuess = function (guessedChar) {
-    if (guessedChar.toLowerCase() === this.character.toLowerCase() || this.character === '-' || this.character === ' ') {
+    if (guessedChar.toLowerCase() === this.character.toLowerCase() || this.character === '-') {
       this.guessed = true// updating the stored boolean value to true if it was guessed correctly
       return true
     } else {

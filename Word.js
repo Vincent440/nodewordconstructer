@@ -1,6 +1,6 @@
 const Letter = require('./Letter.js')
 
-const Word = function (word) { // Word created by the Letter constructor.
+const Word = function (word) {
   // An array of new Letter objects representing the letters of the underlying word
   this.letters = word.split('').map(char => new Letter(char))
   // function that returns a string representing the word. This should call the function on each letter object
@@ -14,18 +14,8 @@ const Word = function (word) { // Word created by the Letter constructor.
         return true
       }
     })
-
-    console.log(this.display())
     return false
   }
-  this.left = function (numLeftToGuess) {
-    numLeftToGuess = 0
-    this.letters.forEach(function (letter) {
-      if (!letter.guessed) {
-        numLeftToGuess++
-      }
-    })
-    return numLeftToGuess
-  }
 }
+
 module.exports = Word
