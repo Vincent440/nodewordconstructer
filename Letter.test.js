@@ -21,16 +21,22 @@ describe('A new letter ', () => {
     expect(a.character).toBe('a')
   })
 
-  test('throws error when more then one letter is passed', () => {
+  test('throws error for underscore characters as they are reserved for placeholder characters', () => {
     expect(() => {
-      return new Letter('octopus')
-    }).toThrow('A letter can ONLY be a SINGLE character')
+      return new Letter('_')
+    }).toThrow('Underscores are Reserved characters')
   })
 
   test('throws error when nothing is passed to the constructor', () => {
     expect(() => {
       return new Letter()
     }).toThrow("Cannot read property 'length' of undefined")
+  })
+
+  test('throws error when more then one letter is passed', () => {
+    expect(() => {
+      return new Letter('octopus')
+    }).toThrow('A letter can ONLY be a SINGLE character')
   })
 
   test('contains a property that holds a guessed boolean defaulting to false', () => {
@@ -43,12 +49,7 @@ describe('A new letter ', () => {
     expect(hyphen.guessed).toBe(true)
   })
 
-  test('such as an underscore will not need to be guessed', () => {
-    const underscore = new Letter('_')
-    expect(underscore.guessed).toBe(true)
-  })
-
-  test('that is not guessed will display a placeholder', () => {
+  test('while not guessed the letter will display a placeholder underscore', () => {
     const d = new Letter('d')
     expect(d.toString()).toBe('_')
   })
