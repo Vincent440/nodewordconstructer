@@ -1,12 +1,5 @@
-const Word = require('./Word.js')
-const helloWorld = new Word('Hello World')
-helloWorld.guessLetter('l')
-helloWorld.guessLetter('d')
-helloWorld.guessLetter('h')
-helloWorld.guessLetter('w')
-console.log(helloWorld.display().length)
-// const inquirer = require('inquirer')
-
+const Game = require('./Game.js')
+const game = new Game()
 // 'Solar System', 'big bang theory', 'binary star', 'astronomer', 'astronomy', 'telescope', 'asteroid', 'dwarf star', 'dwarf planet', 'meteor shower', 'planet', 'light-year'
 // global var to hold the current word the user is guessing
 // const wordsArray = ['Astronaut', 'Neil Armstrong', 'International Space Station', 'Rocket', 'Satellite']
@@ -23,37 +16,7 @@ console.log(helloWorld.display().length)
 //   return curWord
 // }
 
-// function promptWordGuess (word) {
-//   inquirer.prompt([
-//     {
-//       name: 'guess',
-//       type: 'input',
-//       message: 'Guess a letter!',
-//       validate: char => {
-//         const validLetterInput = new RegExp(/[a-z]+/g)
-
-//         if (char.length >= 2 || !validLetterInput.test(char)) {
-//           char = ''
-//           return false
-//         } else {
-//           return true
-//         }
-//       }
-//     }]).then(userPick => {
-//     char = userPick.guess
-//     word.guessLetter(userPick.guess)
-//     promptWordGuess(word)
-//   })
-// }
-// function displayPromptSetWordArray () {
-//   // gameWord = new Word(grabCurrentWordFromArr(currentWord,gameWordArray));
-//   currentWord = new Word('light-year')
-//   console.log(currentWord)
-//   promptWordGuess(currentWord)
-// }
-
-// displayPromptSetWordArray()
-
+game.start()
 // * **index.js**: The file containing the logic for the course of the game, which depends on `Word.js` and:
 
 //   * Randomly selects a word and uses the `Word` constructor to store it

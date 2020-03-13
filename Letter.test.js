@@ -80,6 +80,7 @@ describe('A guessed letter', () => {
     const a = new Letter('a')
     expect(a.makeGuess('d')).toBe(false)
   })
+
   test('correctly updates the guessed property to true when a correct guess is made', () => {
     const d = new Letter('d')
     d.makeGuess('d')
