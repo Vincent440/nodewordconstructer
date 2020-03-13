@@ -9,12 +9,7 @@ const Word = function (word) {
   }
   // A function that takes a character as an argument and calls the guess function on each letter object
   this.guessLetter = function (char) {
-    this.letters.forEach(function (letter) {
-      if (letter.makeGuess(char)) {
-        return true
-      }
-    })
-    return false
+    return this.letters.forEach(letter => !!letter.makeGuess(char))
   }
 }
 

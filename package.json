@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "yarn lint && jest",
-    "test-watcher": "jest --watchAll",
+    "test-verbose": "jest --verbose",
+    "test-coverage-verbose": "jest --verbose --coverage",
+    "test-verb-watchall": "jest --verbose --watchAll",
+    "test-watchall": "jest --watchAll",
     "lint": "standard --fix",
     "check-lint": "standard",
     "start": "node index.js",

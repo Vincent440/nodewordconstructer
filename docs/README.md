@@ -1,4 +1,5 @@
-# nodewordconstructer
+# Node.js Word Constructor
+
 Word Guess command-line game using constructor functions.
 
 ### Check Out My Profile & Portfolio Here!

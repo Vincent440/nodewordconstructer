@@ -8,7 +8,7 @@ const Letter = function (singleCharacter) {
       throw new Error('A letter can ONLY be a SINGLE character')
   }
   // A boolean value that stores whether that letter has been guessed yet
-  if (this.character === '-') {
+  if (this.character === '-' || this.character === ' ') {
     this.guessed = true
   } else if (this.character === '_') {
     throw new Error('Underscores are Reserved characters')
@@ -23,7 +23,7 @@ const Letter = function (singleCharacter) {
   }
   // A function that takes a character as an argument and checks it against the underlying character,
   this.makeGuess = function (guessedChar) {
-    if (guessedChar.toLowerCase() === this.character.toLowerCase() || this.character === '-') {
+    if (guessedChar.toLowerCase() === this.character.toLowerCase()) {
       this.guessed = true// updating the stored boolean value to true if it was guessed correctly
       return true
     } else {

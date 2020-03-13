@@ -1,5 +1,10 @@
 const Word = require('./Word.js')
-console.log(Word.toString())
+const helloWorld = new Word('Hello World')
+helloWorld.guessLetter('l')
+helloWorld.guessLetter('d')
+helloWorld.guessLetter('h')
+helloWorld.guessLetter('w')
+console.log(helloWorld.display().length)
 // const inquirer = require('inquirer')
 
 // 'Solar System', 'big bang theory', 'binary star', 'astronomer', 'astronomy', 'telescope', 'asteroid', 'dwarf star', 'dwarf planet', 'meteor shower', 'planet', 'light-year'

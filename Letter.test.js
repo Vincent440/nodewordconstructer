@@ -1,19 +1,5 @@
 const Letter = require('./Letter.js')
 
-// * **Letter.js**: Contains a constructor, Letter
-// This constructor should be able to either display an underlying character or a blank placeholder (such as an underscore),
-// depending on whether or not the user has guessed the letter.
-
-// That means the constructor should define:
-
-//   * A string value to store the underlying character for the letter
-
-//   * A boolean value that stores whether that letter has been guessed yet
-
-//   * A function that returns the underlying character if the letter has been guessed, or a placeholder (like an underscore) if the letter has not been guessed
-
-//   * A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
-
 describe('A new letter ', () => {
   // Describe - test name - test
   test('contains a property containing a string of the character', () => {
@@ -44,9 +30,14 @@ describe('A new letter ', () => {
     expect(c.guessed).toBe(false)
   })
 
-  test('such as a hyphen will not need to be guessed', () => {
+  test('A hyphen will not need to be guessed', () => {
     const hyphen = new Letter('-')
     expect(hyphen.guessed).toBe(true)
+  })
+
+  test('Spaces will not need to be guessed', () => {
+    const blandSpace = new Letter(' ')
+    expect(blandSpace.guessed).toBe(true)
   })
 
   test('while not guessed the letter will display a placeholder underscore', () => {
@@ -80,6 +71,15 @@ describe('A guessed letter', () => {
     expect(d.toString()).toBe('d')
   })
 
+  test('correctly guessed letters will return true', () => {
+    const d = new Letter('d')
+    expect(d.makeGuess('d')).toBe(true)
+  })
+
+  test('wrong guesses will return false', () => {
+    const a = new Letter('a')
+    expect(a.makeGuess('d')).toBe(false)
+  })
   test('correctly updates the guessed property to true when a correct guess is made', () => {
     const d = new Letter('d')
     d.makeGuess('d')

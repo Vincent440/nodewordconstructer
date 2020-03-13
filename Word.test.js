@@ -6,6 +6,11 @@ describe('A new Word', () => {
     expect(sky.display()).toBe('___')
   })
 
+  test('Spaces between words passed will always display', () => {
+    const solarSystem = new Word('solar system')
+    expect(solarSystem.display()).toBe('_____ ______')
+  })
+
   test('Displays no placeholder for hyphens ', () => {
     const lightYear = new Word('light-year')
     expect(lightYear.display()).toBe('_____-____')
