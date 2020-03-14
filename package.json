@@ -7,7 +7,7 @@
     "test": "yarn lint && jest",
     "test-verbose": "jest --verbose",
     "test-coverage-verbose": "jest --verbose --coverage",
-    "test-verb-watchall": "jest --verbose --watchAll",
+    "test-watch-onChange": "jest --watch --verbose -o",
     "test-watchall": "jest --watchAll",
     "lint": "standard --fix",
     "check-lint": "standard",

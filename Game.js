@@ -2,68 +2,57 @@ const Word = require('./Word.js')
 const inquirer = require('inquirer')
 const wordToBeGuessed = new Word('light-year')
 
-const Game = function () {
-  const self = this
-
-  self.guessesMade = []
-
-  self.numberOfGuessesAvailable = 10
-
-  self.currentWord = wordToBeGuessed
-
-  self.numberOfRemainingLettersToBeGuessed = self.currentWord.length
-
-  self.start = function () {
-    self.updateGame()
-  }
-  self.updateGame = function () {
-    self.numberOfRemainingLettersToBeGuessed = 0
-
-    self.currentWord.letters.forEach(letter => {
-      if (!letter.guessed) {
-        self.numberOfRemainingLettersToBeGuessed++
-      }
-      if (self.numberOfRemainingLettersToBeGuessed > self.numberOfGuessesAvailable) {
-        self.gameOver()
-      }
-    })
-    self.promptUserGuess()
-  }
-
-  self.promptUserGuess = function () {
-    console.log(self.currentWord.display())
-    inquirer.prompt([
-      {
-        name: 'guess',
-        type: 'input',
-        message: 'Guess a letter!\n',
-        validate: function (char) {
-          const validLetterInput = new RegExp(/[a-z]+/g)
-          if (char.length === 1 && validLetterInput.test(char)) {
-            return true
-          }
-          return 'Must guess a single letter A - Z'
-        }
-      }]).then(userPick => {
-      console.log(self.numberOfGuessesAvailable)
-      console.log(self.numberOfRemainingLettersToBeGuessed)
-      self.guessesMade.push(userPick.guess)
-      self.currentWord.guessLetter(userPick.guess)
-      console.log(self.guessesMade)
-      self.next()
-    })
-  }
-
-  self.next = function () {
-    self.updateGame()
-    if (self.numberOfGuessesAvailable === 0) {
-      self.gameOver()
+class Game {
+  constructor () {
+    this.guessesMade = []
+    this.numberOfGuessesAvailable = 10
+    this.currentWord = wordToBeGuessed
+    this.numberOfRemainingLettersToBeGuessed = this.currentWord.length
+    this.start = function () {
+      this.updateGame()
     }
-  }
-
-  self.gameOver = function () {
-    console.log('Good game')
-    process.exit(1)
+    this.updateGame = function () {
+      this.numberOfRemainingLettersToBeGuessed = 0
+      this.currentWord.letters.forEach(letter => {
+        if (!letter.guessed) {
+          this.numberOfRemainingLettersToBeGuessed++
+        }
+        if (this.numberOfRemainingLettersToBeGuessed > this.numberOfGuessesAvailable) {
+          this.gameOver()
+        }
+      })
+      this.promptUserGuess()
+    }
+    this.promptUserGuess = function () {
+      console.log(this.currentWord.display())
+      inquirer.prompt([
+        {
+          name: 'guess',
+          type: 'input',
+          message: 'Guess a letter!\n',
+          validate: function (char) {
+            const validLetterInput = new RegExp(/[a-z]+/g)
+            if (char.length === 1 && validLetterInput.test(char)) {
+              return true
+            }
+            return 'Must guess a single letter A - Z'
+          }
+        }
+      ]).then(userPick => {
+        this.guessesMade.push(userPick.guess)
+        this.currentWord.guessLetter(userPick.guess)
+        this.next()
+      })
+    }
+    this.next = function () {
+      this.updateGame()
+      if (this.numberOfGuessesAvailable === 0) {
+        this.gameOver()
+      }
+    }
+    this.gameOver = function () {
+      process.exit(1)
+    }
   }
 }
 
