@@ -16,7 +16,9 @@
     "word": "node Word.js"
   },
   "standard": {
-    "env": [ "jest" ]
+    "env": [
+      "jest"
+    ]
   },
   "repository": {
     "type": "git",
