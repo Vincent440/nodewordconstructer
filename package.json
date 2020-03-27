@@ -31,7 +31,8 @@
   },
   "homepage": "https://github.com/Vincent440/nodewordconstructer#readme",
   "dependencies": {
-    "inquirer": "^7.0.0"
+    "inquirer": "^7.0.0",
+    "inquirer-autosubmit-prompt": "^0.2.0"
   },
   "devDependencies": {
     "jest": "^25.2.3",

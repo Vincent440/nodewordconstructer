@@ -1,8 +1,11 @@
 const Game = require('./Game.js')
 const game = new Game()
+game.start()
+
 // 'Solar System', 'big bang theory', 'binary star', 'astronomer', 'astronomy', 'telescope', 'asteroid', 'dwarf star', 'dwarf planet', 'meteor shower', 'planet', 'light-year'
 // global var to hold the current word the user is guessing
 // const wordsArray = ['Astronaut', 'Neil Armstrong', 'International Space Station', 'Rocket', 'Satellite']
+
 // let currentWord = ''
 // const guessesAvailable = 10
 
@@ -16,7 +19,6 @@ const game = new Game()
 //   return curWord
 // }
 
-game.start()
 // * **index.js**: The file containing the logic for the course of the game, which depends on `Word.js` and:
 
 //   * Randomly selects a word and uses the `Word` constructor to store it
@@ -35,37 +37,12 @@ game.start()
 //     numberOfLettersRemainingToGuess++
 //   }
 // })
-
-// const testGuess = guessedLightYear.guessLetter('i')
-// if (testGuess === false) {
-//   console.log('BAD GUESS')
-// }
-// if (testGuess === true) {
-//   console.log('GOOD GUESS')
-// }
-// guessedLightYear.guessLetter('l')
-// guessedLightYear.guessLetter('i')
-// guessedLightYear.guessLetter('g')
-// guessedLightYear.guessLetter('h')
-// guessedLightYear.guessLetter('t')
-// guessedLightYear.guessLetter('y')
-// guessedLightYear.guessLetter('e')
-// guessedLightYear.guessLetter('a')
-// guessedLightYear.guessLetter('r')
-// numberOfLettersRemainingToGuess = 0
 // guessedLightYear.letters.forEach(letter => {
 //   if (letter.guessed === false) {
 //     numberOfLettersRemainingToGuess++
 //   }
 // })
-// console.log(numberOfLettersRemainingToGuess)
-// console.log(guessedLightYear.letters.length)
-// console.log(guessedLightYear.display())
 
 // if (guessedLightYear.display() === 'light-year' && remainingNumberOfGuessesLeft > 0 && numberOfLettersRemainingToGuess === 0) {
 //   console.log('you win a hyphened game of node word constructor')
 // }
-// // A game constructor to be used inside the inquirer prompts,
-// // which will accept a word or a string of words
-// // It will pass them to the Word / Letter constructors.
-// // Game will contain all of the logic for each instance of the game the user plays
