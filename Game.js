@@ -8,7 +8,7 @@ const questionPrompt = {
   type: 'input',
   message: 'Guess a letter!\n',
   validate: function (char) {
-    const validLetters = /[a-z]/g
+    const validLetters = /[a-z]/gi
     if (char.length === 1 && validLetters.test(char)) {
       return true
     }
@@ -21,31 +21,22 @@ class Game {
   constructor () {
     // Set starting State
     this.numGuessesRemaining = 10
+
     this.currentWord = wordToBeGuessed
-    this.numberOfRemainingLettersToBeGuessed = this.currentWord.length
 
     this.start = function () {
-      this.update()
+      this.promptUser()
     }
 
-    this.update = function () {
-      const previousNumberOfLettersToBeGuessed = this.numberOfRemainingLettersToBeGuessed
-      this.numberOfRemainingLettersToBeGuessed = 0
-
-      this.currentWord.letters.forEach(letter => {
-        if (!letter.guessed) {
-          this.numberOfRemainingLettersToBeGuessed++
-        }
-      })
-      if (previousNumberOfLettersToBeGuessed - this.numberOfRemainingLettersToBeGuessed === 0) {
-        this.numGuessesRemaining -= 1
+    this.updateGame = function () {
+      if (this.numGuessesRemaining <= 0) {
+        console.log()
+        console.log('No Guesses Remaining! Goodbye.')
+        this.gameOver()
       }
 
-      this.next()
-    }
-
-    this.next = function () {
-      if (this.numberOfRemainingLettersToBeGuessed > this.numGuessesRemaining || this.numGuessesRemaining <= 0) {
+      if (this.currentWord.done() === true) {
+        console.log('You solved it!')
         this.gameOver()
       }
 
@@ -53,9 +44,9 @@ class Game {
     }
 
     this.promptUser = function () {
-      console.log('Target word: ' + this.currentWord.display())
+      console.log('Target word: ' + this.currentWord.toString())
       console.log('Guesses Available: ' + this.numGuessesRemaining)
-      console.log('Not Guessed: ' + this.numberOfRemainingLettersToBeGuessed)
+      console.log('Not Guessed: ' + this.currentWord.letters.filter(chars => !chars.guessed).length)
 
       inquirer.prompt([questionPrompt]).then(userPick => {
         console.log(userPick)
@@ -67,21 +58,21 @@ class Game {
 
         this.currentWord.guessLetter(userPick.guess)
 
-        this.update()
+        this.updateGame()
       })
     }
 
     this.gameOver = function () {
       console.log('\n----------------------------------------\n')
-      console.log('Target word: ' + this.currentWord.display())
-
+      console.log('Progress: ' + this.currentWord.toString())
+      console.log('Solution: ' + this.currentWord.solved)
       console.log('Guesses Available: ' + this.numGuessesRemaining)
 
       console.log('Not Guessed: ' + this.numberOfRemainingLettersToBeGuessed)
 
       console.log('Game over called')
 
-      process.exit(1)
+      process.exit(0)
     }
   }
 }

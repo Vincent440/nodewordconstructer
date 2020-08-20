@@ -17,13 +17,14 @@ class Letter {
     this.toString = function () {
       return this.guessed ? this.character : '_'
     }
-    this.makeGuess = function (guessedChar) {
-      if (guessedChar.toLowerCase() === this.character.toLowerCase()) {
-        this.guessed = true
-        return true
-      } else {
-        return false
-      }
+  }
+
+  makeGuess (guessedChar) {
+    if (guessedChar.toLowerCase() === this.character.toLowerCase()) {
+      this.guessed = true
+      return true
+    } else {
+      return false
     }
   }
 }

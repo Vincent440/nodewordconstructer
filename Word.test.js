@@ -3,19 +3,21 @@ const Word = require('./Word.js')
 describe('A new Word', () => {
   test('Displays one underscore for each character of the word', () => {
     const sky = new Word('sky')
-    expect(sky.display()).toBe('___')
+    expect(sky.toString()).toBe('___')
   })
 
   test('Spaces between words passed will always display', () => {
     const solarSystem = new Word('solar system')
-    expect(solarSystem.display()).toBe('_____ ______')
+    expect(solarSystem.toString()).toBe('_____ ______')
   })
 
   test('Displays no placeholder for hyphens ', () => {
     const lightYear = new Word('light-year')
-    expect(lightYear.display()).toBe('_____-____')
+    expect(lightYear.toString()).toBe('_____-____')
   })
+})
 
+describe('Guessing a word', () => {
   test('A hyphened word can have all of its letters guessed', () => {
     const guessedLightYear = new Word('light-year')
     guessedLightYear.guessLetter('l')
@@ -27,7 +29,18 @@ describe('A new Word', () => {
     guessedLightYear.guessLetter('e')
     guessedLightYear.guessLetter('a')
     guessedLightYear.guessLetter('r')
-    expect(guessedLightYear.display()).toBe('light-year')
+    expect(guessedLightYear.toString()).toBe('light-year')
+  })
+
+  test('When all letters are guessed word ', () => {
+    const guessedLights = new Word('lights')
+    guessedLights.guessLetter('l')
+    guessedLights.guessLetter('i')
+    guessedLights.guessLetter('g')
+    guessedLights.guessLetter('h')
+    guessedLights.guessLetter('t')
+    guessedLights.guessLetter('s')
+    expect(guessedLights.done()).toBe(true)
   })
 })
 
