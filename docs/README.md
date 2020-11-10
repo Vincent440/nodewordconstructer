@@ -2,8 +2,10 @@
 
 Word Guess command-line game using constructor functions.
 
-### Check Out My Profile & Portfolio Here!
 
-Please go to my [Github Profile](https://github.com/Vincent440) to see my repositories.
+## Author
 
-Don't forget to view my [Github Portfolio page](https://vincent440.github.io/) well you are there Thanks!
+**Vincent Shury**, <small>Full stack web developer</small>
+- [vshury.com](https://www.vshury.com) - Developer Portfolio
+- [Github Profile](https://github.com/Vincent440) - GitHub Profile
+- [LinkedIn](https://www.linkedin.com/in/vincent-shury/) - LinkedIn Profile
